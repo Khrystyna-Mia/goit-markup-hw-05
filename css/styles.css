@@ -7,6 +7,11 @@
   --secondary-color: #2f303a;
   --background-color: #f5f4fa;
   --border-color: #ececec;
+  --nav-icon: #757575;
+  --primary-icon: #afb1b8;
+  --secondary-icon: #2196f3;
+  --third-icon: #ffffff;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* HTML box */
@@ -64,7 +69,7 @@ img {
 
 /* Header */
 .page-header {
-  border: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Logo */
@@ -108,6 +113,7 @@ img {
 
   display: block;
   margin-bottom: 0px;
+  transition: color 250ms var(--transition);
 }
 
 .site-nav .nav-link:hover,
@@ -115,7 +121,23 @@ img {
 .contacts .link:hover,
 .contacts .link:focus {
   color: var(--accent-color);
-  fill: #2196f3;
+  fill: var(--secondary-icon);
+}
+
+.site-nav .nav-link {
+  position: relative;
+}
+
+.site-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 /* Contacts */
@@ -141,7 +163,8 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  fill: #757575;
+  fill: var(--nav-icon);
+  transition: color 250ms var(--transition), fill 250ms var(--transition);
 }
 
 /* Стили для index.html */
@@ -287,19 +310,20 @@ img {
   content: '';
   position: absolute;
   display: block;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 70px;
-  bottom: 0;
   background-color: rgba(47, 47, 58, 0.8);
 }
 
 .work-thumb > .label {
   position: absolute;
-  /* transform: translate(-50% 0); */
-  width: 100%;
-
-  margin: 0;
   bottom: 27px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  margin: 0;
 
   color: var(--white-color);
   font-weight: 700;
@@ -372,13 +396,15 @@ img {
 .team-icon {
   border-radius: 50%;
   margin-right: 10px;
-  fill: #afb1b8;
+  fill: var(--primary-icon);
+
+  transition: fill 250ms var(--transition), background-color 250ms var(--transition);
 }
 
 .team-icon:hover,
 .team-icon:focus {
-  fill: #ffffff;
-  background: #2196f3;
+  fill: var(--third-icon);
+  background-color: var(--secondary-icon);
 }
 
 /* Client */
@@ -409,22 +435,24 @@ img {
 .client-list .client-link {
   width: 170px;
   height: 92px;
-  border: 1px solid #afb1b8;
+  border: 1px solid var(--primary-icon);
   border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: fill 250ms var(--transition), border 250ms var(--transition);
 }
 
 .client-list .client-link {
-  fill: #afb1b8;
+  fill: var(--primary-icon);
 }
 
 .client-list .client-link:hover,
 .client-list .client-link:focus {
-  border: 1px solid #2196f3;
-  fill: #2196f3;
+  border: 1px solid var(--secondary-icon);
+  fill: var(--secondary-icon);
 }
 
 /* Стили для portfolio.html*/
@@ -440,6 +468,8 @@ img {
 
   display: flex;
   justify-content: center;
+  transition: color 250ms var(--transition), background-color 250ms var(--transition),
+    box-shadow 250ms var(--transition);
 }
 
 .filter .btn {
@@ -564,6 +594,7 @@ img {
 
   display: inline-block;
   margin-bottom: 9px;
+  transition: color 250ms var(--transition);
 }
 
 /* Join */
@@ -592,12 +623,14 @@ img {
 
 .join-icon {
   border-radius: 50%;
-  fill: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
+  fill: var(--third-icon);
+  background-color: rgba(255, 255, 255, 0.1);
+
+  transition: fill 250ms var(--transition), background-color 250ms var(--transition);
 }
 
 .join-icon:hover,
 .join-icon:focus {
-  background: #2196f3;
+  background-color: var(--secondary-icon);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
