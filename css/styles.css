@@ -7,11 +7,12 @@
   --secondary-color: #2f303a;
   --background-color: #f5f4fa;
   --border-color: #ececec;
+  /* color icon */
   --nav-icon: #757575;
   --primary-icon: #afb1b8;
   --secondary-icon: #2196f3;
   --third-icon: #ffffff;
-  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* HTML box */
@@ -28,7 +29,7 @@ html {
 /* Container */
 .container {
   width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -97,6 +98,8 @@ img {
 /* Site nav */
 .site-nav {
   display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: 93px;
 }
 
@@ -113,7 +116,10 @@ img {
 
   display: block;
   margin-bottom: 0px;
-  transition: color 250ms var(--transition);
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  transition: color 250ms var(--transition-timing);
 }
 
 .site-nav .nav-link:hover,
@@ -132,7 +138,7 @@ img {
   content: '';
   position: absolute;
   display: block;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 4px;
@@ -164,7 +170,7 @@ img {
   letter-spacing: 0.02em;
 
   fill: var(--nav-icon);
-  transition: color 250ms var(--transition), fill 250ms var(--transition);
+  transition: color 250ms var(--transition-timing), fill 250ms var(--transition-timing);
 }
 
 /* Стили для index.html */
@@ -216,6 +222,9 @@ img {
   min-width: 200px;
   border-color: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color 250ms var(--transition-timing),
+    box-shadow 250ms var(--transition-timing);
 }
 
 .hero-button:hover,
@@ -442,7 +451,7 @@ img {
   margin-right: 10px;
   fill: var(--primary-icon);
 
-  transition: fill 250ms var(--transition), background-color 250ms var(--transition);
+  transition: fill 250ms var(--transition-timing), background-color 250ms var(--transition-timing);
 }
 
 .team-icon:hover,
@@ -486,7 +495,7 @@ img {
   justify-content: center;
   align-items: center;
 
-  transition: fill 250ms var(--transition), border 250ms var(--transition);
+  transition: fill 250ms var(--transition-timing), border 250ms var(--transition-timing);
 }
 
 .client-list .client-link {
@@ -512,8 +521,8 @@ img {
 
   display: flex;
   justify-content: center;
-  transition: color 250ms var(--transition), background-color 250ms var(--transition),
-    box-shadow 250ms var(--transition);
+  transition: color 250ms var(--transition-timing), background-color 250ms var(--transition-timing),
+    box-shadow 250ms var(--transition-timing);
 }
 
 .filter .btn {
@@ -598,17 +607,19 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  visibility: hidden;
-  transform: translateY(100%);
-  transition: transform 250ms var(--transition), visibility 250ms var(--transition);
+  /* overflow: hidden;
+  transform: translateY(100%); */
   padding: 63px 24px;
+  /* transition: transform 250ms var(--transition-timing), visibility 250ms var(--transition-timing); */
   background-color: rgba(33, 150, 243, 0.9);
 }
 
-.card .portfolio-overlay:hover {
-  visibility: hidden;
-  transform: translateY(100%);
+.card .portfolio-overlay:hover,
+.card .portfolio-overlay:focus {
+  /* visibility: hidden;
+  transform: translateY(100%); */
 }
+
 .overlay-text {
   color: #ffffff;
   font-size: 18px;
@@ -632,6 +643,7 @@ img {
   font-size: 26px;
   line-height: 1.19;
   text-decoration: none;
+
   display: block;
 }
 
@@ -672,7 +684,7 @@ img {
 
   display: inline-block;
   margin-bottom: 9px;
-  transition: color 250ms var(--transition);
+  transition: color 250ms var(--transition-timing);
 }
 
 /* Join */
@@ -683,6 +695,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   margin-top: 0;
   margin-bottom: 20px;
 }
@@ -704,7 +717,8 @@ img {
   fill: var(--third-icon);
   background-color: rgba(255, 255, 255, 0.1);
 
-  transition: fill 250ms var(--transition), background-color 250ms var(--transition);
+  transition: fill 250ms var(--transition-timing), background-color 250ms var(--transition-timing),
+    filter 250ms var(--transition-timing);
 }
 
 .join-icon:hover,
