@@ -132,6 +132,9 @@ img {
 
 .site-nav .nav-link {
   position: relative;
+  display: block;
+  text-decoration: none;
+  color: var(--accent-color);
 }
 
 .site-nav .nav-link::after {
@@ -144,6 +147,12 @@ img {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
+  opacity: 0;
+  transition: opacity 250ms var(--transition-timing);
+}
+
+.site-nav .nav-link:hover::after {
+  opacity: 1;
 }
 
 /* Contacts */
@@ -560,7 +569,7 @@ img {
   margin: 15px;
   border: 1px solid var(--border-color);
 
-  transition: box-shadow 250ms var(--transition);
+  /* transition: box-shadow 250ms var(--transition); */
 }
 
 .card-set > .card-item:hover {
@@ -607,17 +616,16 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  /* overflow: hidden;
-  transform: translateY(100%); */
   padding: 63px 24px;
-  /* transition: transform 250ms var(--transition-timing), visibility 250ms var(--transition-timing); */
+  transition: transform 250ms var(--transition-timing), visibility 250ms var(--transition-timing),
+    background-color 250ms var(--transition-timing);
   background-color: rgba(33, 150, 243, 0.9);
 }
 
-.card .portfolio-overlay:hover,
-.card .portfolio-overlay:focus {
-  /* visibility: hidden;
-  transform: translateY(100%); */
+.card:hover .portfolio-overlay,
+.card:focus .portfolio-overlay {
+  transform: translateY(100%);
+  visibility: hidden;
 }
 
 .overlay-text {
